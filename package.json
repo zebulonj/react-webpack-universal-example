@@ -4,6 +4,9 @@
   "description": "Example setup for a universal JavaScript application.",
   "main": "index.js",
   "scripts": {
+    "start": "http-server ./public",
+    "clean": "rm -rf build public/js",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/zebulonj/react-webpack-universal-example/issues"
   },
-  "homepage": "https://github.com/zebulonj/react-webpack-universal-example#readme"
+  "homepage": "https://github.com/zebulonj/react-webpack-universal-example#readme",
+  "dependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "http-server": "^0.9.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1"
+  }
 }

@@ -1,0 +1,7 @@
+.eslintcache
+
+/node_modules
+/build
+/public/js
+
+npm-debug.log
