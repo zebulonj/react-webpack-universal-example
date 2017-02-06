@@ -1,14 +1,17 @@
 var path = require( 'path' );
 var webpack = require( 'webpack' );
 
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var CSS = new ExtractTextPlugin( "css/styles.css" );
+
 var plugins = [];
 
 module.exports = [
   {
       entry: "./src/client/index.js",
       output: {
-          path: path.resolve( __dirname, "public/js" ),
-          filename: "bundle.js"
+          path: path.resolve( __dirname, "public" ),
+          filename: "js/bundle.js"
       },
       module: {
           rules: [{
@@ -16,10 +19,15 @@ module.exports = [
             loader: 'babel-loader'
           }, {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
+            use: CSS.extract({
+              fallback: "style-loader",
+              use: "css-loader"
+            })
           }]
       },
-      plugins: plugins
+      plugins: [
+        CSS
+      ]
   },
   {
       entry: "./src/app/index.js",
